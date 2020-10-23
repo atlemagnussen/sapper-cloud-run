@@ -47,4 +47,4 @@
 	<figcaption>I am having fun!</figcaption>
 </figure>
 
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+<p><strong>Yes I am editing this shit</strong></p>
