@@ -21,6 +21,18 @@ https://cloud.google.com/cloud-build/docs/configuring-builds/substitute-variable
 # authenticate with registry
 gcloud auth configure-docker europe-north1-docker.pkg.dev
 
+# give cloud build permission to deploy
+gcloud projects list
+
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member "serviceAccount:PROJECT_NUMBER@cloudbuild.gserviceaccount.com" \
+  --role roles/run.admin
+
+gcloud iam service-accounts add-iam-policy-binding \
+  PROJECT_NUMBER-compute@developer.gserviceaccount.com \
+  --member="serviceAccountNUMBER@cloudbuild.gserviceaccount.com" \
+  --role="roles/iam.serviceAccountUser"
+
 # build locally
 docker build -t test-sapper .
 # test locally
