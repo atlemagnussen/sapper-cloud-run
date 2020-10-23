@@ -1,0 +1,4 @@
+steps:
+ # build the container image
+ - name: 'gcr.io/cloud-builders/docker'
+   args: ['build', '-t', 'europe-north1-docker.pkg.dev/$PROJECT_ID/testing/test-sapper:$COMMIT_SHA', '.'] # or $SHORT_SHA
