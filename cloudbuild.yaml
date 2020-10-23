@@ -1,6 +1,6 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'europe-north1-docker.pkg.dev/$PROJECT_ID/testing/test-sapper:$COMMIT_SHA', '.'] # or $SHORT_SHA
+    args: ['build', '-t', 'europe-north1-docker.pkg.dev/$PROJECT_ID/testing/test-sapper:$BRANCH_NAME-$SHORT_SHA', '.']
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'europe-north1-docker.pkg.dev/$PROJECT_ID/testing/test-sapper:$COMMIT_SHA']
+    args: ['push', 'europe-north1-docker.pkg.dev/$PROJECT_ID/testing/test-sapper:$BRANCH_NAME-$SHORT_SHA']
