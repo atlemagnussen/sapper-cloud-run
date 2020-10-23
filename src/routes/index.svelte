@@ -47,4 +47,4 @@
 	<figcaption>I am having fun!</figcaption>
 </figure>
 
-<p><strong>Yes I am editing this shit</strong></p>
+<p><strong>Yes I am editing this shit, twice</strong></p>

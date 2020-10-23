@@ -29,4 +29,7 @@ docker run -d -p 3000:3000 --name test test-sapper
 # tag and push to registry
 docker tag test-sapper europe-north1-docker.pkg.dev/backslash-project/testing/test-sapper
 docker push europe-north1-docker.pkg.dev/backslash-project/testing/test-sapper
+
+# deploy
+gcloud run deploy --image europe-north1-docker.pkg.dev/backslash-project/testing/test-sapper --platform managed
 ```
