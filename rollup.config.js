@@ -8,6 +8,8 @@ import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
+import markdown from '@jackfranklin/rollup-plugin-markdown'
+import glob from 'rollup-plugin-glob'
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -23,6 +25,8 @@ export default {
 		input: config.client.input(),
 		output: config.client.output(),
 		plugins: [
+			markdown(),
+      		glob(),
 			replace({
 				'process.browser': true,
 				'process.env.NODE_ENV': JSON.stringify(mode)
@@ -72,6 +76,8 @@ export default {
 		input: config.server.input(),
 		output: config.server.output(),
 		plugins: [
+			markdown(),
+      		glob(),
 			replace({
 				'process.browser': false,
 				'process.env.NODE_ENV': JSON.stringify(mode)

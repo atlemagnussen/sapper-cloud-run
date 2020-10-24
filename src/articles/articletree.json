@@ -1,0 +1,35 @@
+{
+    "rootUrl": "/articles/",
+    "nodes": [
+        {
+            "id": "root",
+            "name": "#",
+            "expanded": true,
+            "children": [
+                {
+                    "id": "js",
+                    "name": "Javascript",
+                    "children": [
+                        {
+                            "id": "es6-modules",
+                            "name": "ES6 modules",
+                            "desc": "ES6 modules and how to use them correctly",
+                            "tags": [
+                                "es6",
+                                "ecmascript",
+                                "javascript",
+                                "modules",
+                                "web development"
+                            ],
+                            "blogger": {
+                                "publish": true,
+                                "id": "1094851240419157807",
+                                "link": "https://blog.backslash.site/2019/10/es6-modules.html"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

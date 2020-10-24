@@ -1,16 +1,22 @@
-import posts from './_posts.js';
+//import tree from "../../articles/articletree.json";
+const filepath = "../../articles/articletree.json";
+import fs from "fs";
+const load = async () => {
+	return new Promise((resolve, reject) => {
+		fs.readFile(filepath, (err, data) => {
+			if (err)
+				 reject(err);
+			console.log(data);
+			const tree = JSON.parse(data);
+			resolve(tree);
+		});
+	});
+}
 
-const contents = JSON.stringify(posts.map(post => {
-	return {
-		title: post.title,
-		slug: post.slug
-	};
-}));
-
-export function get(req, res) {
+export const get = async (req, res) => {
 	res.writeHead(200, {
 		'Content-Type': 'application/json'
 	});
-
+	const contenst = await load();
 	res.end(contents);
-}
+};
