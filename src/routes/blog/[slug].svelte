@@ -46,7 +46,7 @@
 </style>
 
 <svelte:head>
-	<title>{post.title}</title>
+	<title>{post.name}</title>
 </svelte:head>
 
 <div class="content">

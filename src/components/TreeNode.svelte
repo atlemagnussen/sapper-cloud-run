@@ -9,7 +9,7 @@
         if (!spanNode)
             return;
         if (articleNode.type && config.types && config.types.hasOwnProperty(articleNode.type)) {
-            const type = this.config.types[articleNode.type];
+            const type = config.types[articleNode.type];
             if (type.css) {
                 const classes = type.css.split(' ');
                 spanNode.classList.add(...classes);
@@ -61,7 +61,7 @@
     </summary>
     {#if articleNode.children}
         {#each articleNode.children as child}
-            <svelte:self articleNode={child} />
+            <svelte:self articleNode={child} config={config} />
         {/each}
     {/if}
 </details>

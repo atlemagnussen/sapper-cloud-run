@@ -1,11 +1,11 @@
 import { find } from "../../articles.js";
 
 
-export function get(req, res, next) {
+export async function get(req, res, next) {
 	// the `slug` parameter is available because
 	// this file is called [slug].json.js
 	const { slug } = req.params;
-	const article = find(slug);
+	const article = await find(slug);
 
 	if (article) {
 		res.writeHead(200, {
