@@ -1,8 +1,7 @@
 <script context="module">
-	export function preload() {
-		return this.fetch(`blog.json`).then(r => r.json()).then(posts => {
-			return { tree };
-		});
+	export async function preload() {
+		const tree = await this.fetch(`blog.json`).then(r => r.json());
+		return { tree };
 	}
 </script>
 
