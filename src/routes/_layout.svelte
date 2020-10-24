@@ -34,11 +34,39 @@
 	aside#right {
 		grid-column: 3 / 4;
 	}
-
 	footer {
 		padding: 2rem;
 		text-align: center;
 		grid-column: 1 / 4;
+	}
+	aside.layout {
+		padding: 1rem;
+	}
+	
+	@media only screen and (max-width: 640px) {
+		main {
+			grid-template: unset;
+			grid-template-rows: auto auto 1fr auto;
+		}
+		header {
+			grid-column: auto;
+		}
+
+		aside#left {
+			grid-column: auto;
+		}
+
+		section#content {
+			grid-column: auto;
+		}
+
+		aside#right {
+			display: none;
+			grid-column:unset;
+		}
+		footer {
+			grid-column: auto;
+		}
 	}
 </style>
 
@@ -47,10 +75,10 @@
 		<Nav {segment}/>
 	</header>
 
-	<aside id="left">
+	<aside id="left" class="layout">
 		<nav id="treeview" class="treeview">
 			{#each tree.nodes as node}
-				<TreeNode articleNode={node} config={tree.config}/>
+				<TreeNode articleNode={node} config={tree.config} {segment}/>
 			{/each}
 		</nav>		
 	</aside>
@@ -59,8 +87,8 @@
 		<slot></slot>
 	</section>
 	
-	<aside id="right">
-		
+	<aside id="right" class="layout">
+		Hello
 	</aside>
 
 	<footer>Footer</footer>

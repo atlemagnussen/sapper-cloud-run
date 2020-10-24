@@ -1,9 +1,23 @@
 <script>
+
+    import { stores } from '@sapper/app';
+    const { page } = stores();
+
     export let articleNode;
     export let config;
+    export let segment;
+    
+    let open = articleNode.expanded;
     let spanNode;
 
-    $: if (spanNode) css();
+    page.subscribe((val) => {
+        if (!open && val) {
+            open = val.params && val.params.slug == articleNode.id
+        }
+    });
+    $:
+        if (spanNode) 
+            css();
 
     const css = () => {
         if (!spanNode)
@@ -23,7 +37,6 @@
 </script>
 <style>
     details {
-        margin-left: 1rem;
         cursor: pointer;
     }
     details.leaf > summary{
@@ -47,9 +60,12 @@
     }
 </style>
 
-<details class:leaf="{!articleNode.children}" open={articleNode.expanded}>
+<details class:leaf="{!articleNode.children}" bind:open>
     <summary id="{articleNode.id}">
-        <span id="{articleNode.id}" bind:this={spanNode} class="node-text"> <!-- class:selected={$blogId == articleNode.id} -->
+        <span id="{articleNode.id}" 
+            bind:this={spanNode} 
+            class="node-text"
+            class:selected={$page && $page.params && $page.params.slug == articleNode.id}>
             
             {#if articleNode.children}
                 {articleNode.name}
@@ -61,7 +77,7 @@
     </summary>
     {#if articleNode.children}
         {#each articleNode.children as child}
-            <svelte:self articleNode={child} config={config} />
+            <svelte:self articleNode={child} {config} {segment}/>
         {/each}
     {/if}
 </details>
