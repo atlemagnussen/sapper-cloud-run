@@ -1,4 +1,4 @@
-import all from "./articles/*.md";
+import all from "../articles/*.md";
 
 export const find = (id) => {
     const file = `${id}.md`;
