@@ -3,10 +3,12 @@ body {
 	font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	font-size: 14px;
 	line-height: 1.5;
-	background: #000;
+	background-color: #111;
+	background-image: url(https://storage.googleapis.com/backslash-project.appspot.com/static/dark-landscape-smaller2.jpg);
+    background-attachment: fixed;
+    background-size: cover;
 	color: white;
 }
-
 h1, h2, h3, h4, h5, h6 {
 	margin: 0 0 0.5em 0;
 	font-weight: 400;
